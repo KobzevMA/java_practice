@@ -3,7 +3,7 @@ package com.epam.mikhail_kobzev.java.lesson2.model;
 import java.io.*;
 
 /**
- * Created by Mike on 31.05.2018.
+ * Created by Mike on 25.05.2018.
  */
 
 public class Connector extends Thread{

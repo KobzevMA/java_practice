@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * Created by Mike on 31.05.2018.
+ * Created by Mike on 25.05.2018.
  */
 public class CandyPackCollector {
     public static void main(String[] args) throws IOException {
