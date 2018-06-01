@@ -1,7 +1,7 @@
-package com.epam.mikhail_kobzev.java.lesson5;
+package com.epam.mikhail_kobzev.java.lesson6;
 
-import com.epam.mikhail_kobzev.java.lesson5.interfaces.AirCompany;
-import com.epam.mikhail_kobzev.java.lesson5.model.*;
+import com.epam.mikhail_kobzev.java.lesson6.interfaces.AirCompany;
+import com.epam.mikhail_kobzev.java.lesson6.model.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,6 +17,7 @@ public class MakeCompany {
 
     void run() throws IOException {
         Scanner scanner = new Scanner(System.in);
+        Connector connector = new Connector();
         AirCompany doganAirlines = new AirCompanyImplemented();
         AirCompany feddikAirlines = new AirCompanyImplemented();
         String name = scanner.nextLine();
@@ -34,7 +35,10 @@ public class MakeCompany {
             System.out.println(aircraft.toString());
         }
         System.out.println();
+        connector.writeSerializeObject(doganAirlines);
+        connector.run();
 
+        feddikAirlines = (AirCompanyImplemented)connector.getObject();
         System.out.println("Aircraft with flight length 2000:");
         List<Aircraft> aircrafts = feddikAirlines.getAircraftByFlightLength(2000);
         for (Aircraft aircraft : aircrafts)
