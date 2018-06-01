@@ -1,16 +1,17 @@
-package com.epam.mikhail_kobzev.java.lesson2;
+package com.epam.mikhail_kobzev.java.lesson4;
 
-import com.epam.mikhail_kobzev.java.lesson2.interfaces.AirCompany;
-import com.epam.mikhail_kobzev.java.lesson2.model.*;
+import com.epam.mikhail_kobzev.java.lesson4.exception.WrongCapacityException;
+import com.epam.mikhail_kobzev.java.lesson4.exception.WrongNameException;
+import com.epam.mikhail_kobzev.java.lesson4.interfaces.AirCompany;
+import com.epam.mikhail_kobzev.java.lesson4.model.*;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * Created by Mike on 25.05.2018.
  */
+
 public class MakeCompany {
     public static void main(String[] args) throws IOException {
         new MakeCompany().run();
@@ -21,10 +22,16 @@ public class MakeCompany {
         Connector connector = new Connector();
         AirCompany doganAirlines = new AirCompanyImplemented();
         AirCompany feddikAirlines = new AirCompanyImplemented();
-        String name = scanner.nextLine();
-        int capacity1 = scanner.nextInt();
 
-        doganAirlines.addAircraft(new CargoAircraft(1, name, capacity1,2000));
+        try {
+            String name = checkName(scanner.nextLine());
+            int capacity1 = checkCapacity(scanner.nextInt());
+            doganAirlines.addAircraft(new CargoAircraft(1, name, capacity1,2000));
+        }catch (WrongNameException | WrongCapacityException e) {
+            System.err.println(e.getMessage());
+            System.exit(0);
+        }
+
         doganAirlines.addAircraft(new PassengerAircraft(2, "DarkTower", 20, 300, 1300));
         doganAirlines.addAircraft(new PassengerAircraft(3, "CrimsonKing", 10, 200, 1200));
 
@@ -39,7 +46,7 @@ public class MakeCompany {
             System.out.println(tempArray[i].toString());
         }
         System.out.println();
-
+        
         connector.writeSerializeObject(doganAirlines);
         connector.run();
         feddikAirlines = (AirCompany) connector.getObject();
@@ -47,6 +54,21 @@ public class MakeCompany {
         Aircraft[] aircrafts = feddikAirlines.getAircraftByFlightLength(2000);
         for (int i = 0; i < aircrafts.length; i++)
             System.out.println(aircrafts[i].toString());
+    }
+
+    private int checkCapacity(int capacity) throws WrongCapacityException {
+        if (capacity < 0){
+            throw new WrongCapacityException();
+        }
+        return capacity;
+    }
+
+
+    private String checkName(String name) throws WrongNameException{
+        if (name.contains("@") || name.contains("|")){
+            throw new WrongNameException();
+        }
+        return name;
     }
 
 }
