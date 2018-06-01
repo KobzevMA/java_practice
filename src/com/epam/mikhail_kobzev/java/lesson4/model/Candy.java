@@ -38,7 +38,7 @@ public abstract class Candy implements Serializable {
 
     @Override
     public String toString() {
-        return "Candy{" +
+        return "Aircraft{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
