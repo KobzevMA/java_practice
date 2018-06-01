@@ -22,7 +22,7 @@ public class StringHandling2 {
         System.out.println("Strings with length more than average:");
         for (int i = 0; i < strings.size(); i++)
             if (strings.get(i).length() > averageLength)
-                System.out.printf("string \"%s\"; \tlength: %d\n",strings.get(i),strings.get(i).length());
+                System.out.printf("string \"%ConnectionConfig\"; \tlength: %d\n",strings.get(i),strings.get(i).length());
     }
 
     private ArrayList<String> readStrings(){
