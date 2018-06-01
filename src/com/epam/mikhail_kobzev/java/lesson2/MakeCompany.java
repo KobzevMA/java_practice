@@ -39,6 +39,7 @@ public class MakeCompany {
             System.out.println(tempArray[i].toString());
         }
         System.out.println();
+        
         connector.writeSerializeObject(doganAirlines);
         connector.run();
         feddikAirlines = (AirCompany) connector.getObject();
