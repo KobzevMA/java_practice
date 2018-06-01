@@ -19,7 +19,6 @@ public class MakeCompany {
 
     void run() throws IOException {
         Scanner scanner = new Scanner(System.in);
-        Connector connector = new Connector();
         AirCompany doganAirlines = new AirCompanyImplemented();
         AirCompany feddikAirlines = new AirCompanyImplemented();
 
@@ -46,10 +45,7 @@ public class MakeCompany {
             System.out.println(tempArray[i].toString());
         }
         System.out.println();
-        
-        connector.writeSerializeObject(doganAirlines);
-        connector.run();
-        feddikAirlines = (AirCompany) connector.getObject();
+
         System.out.println("Aircraft with flight length 2000:");
         Aircraft[] aircrafts = feddikAirlines.getAircraftByFlightLength(2000);
         for (int i = 0; i < aircrafts.length; i++)
