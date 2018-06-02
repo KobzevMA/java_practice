@@ -6,7 +6,7 @@ import java.io.*;
  * Created by Mike on 01.06.2018.
  */
 
-public class Connector extends Thread{
+public class Connector implements Runnable{
 
     private Object object;
 
