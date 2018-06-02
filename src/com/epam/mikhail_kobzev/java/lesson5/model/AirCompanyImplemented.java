@@ -2,6 +2,7 @@ package com.epam.mikhail_kobzev.java.lesson5.model;
 
 import com.epam.mikhail_kobzev.java.lesson5.interfaces.AirCompany;
 import com.epam.mikhail_kobzev.java.lesson5.services.SortByFlightLength;
+import com.epam.mikhail_kobzev.java.lesson5.model.Aircraft;
 
 import java.io.Serializable;
 import java.util.ArrayList;

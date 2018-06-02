@@ -6,8 +6,8 @@ package com.epam.mikhail_kobzev.java.lesson2.model;
 
 public class PassengerAircraft extends Aircraft {
 
-    public PassengerAircraft(int id, String name, int capacity, int numberOfPassenger, int flightLength) {
-        super(id, name, capacity, numberOfPassenger, flightLength);
+    public PassengerAircraft(int id, String name, int capacity, int numberOfPassenger, int flightLength, String mark) {
+        super(id, name, capacity, numberOfPassenger, flightLength, mark);
     }
 
 }

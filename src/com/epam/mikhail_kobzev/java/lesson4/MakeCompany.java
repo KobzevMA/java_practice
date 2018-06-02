@@ -46,7 +46,7 @@ public class MakeCompany {
         }
         System.out.println();
 
-        System.out.println("Aircraft with flight length 2000:");
+        System.out.println("Plane with flight length 2000:");
         Aircraft[] aircrafts = feddikAirlines.getAircraftByFlightLength(2000);
         for (int i = 0; i < aircrafts.length; i++)
             System.out.println(aircrafts[i].toString());

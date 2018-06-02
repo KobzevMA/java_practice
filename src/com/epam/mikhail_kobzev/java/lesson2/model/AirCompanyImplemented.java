@@ -62,6 +62,8 @@ public class AirCompanyImplemented implements AirCompany, Serializable {
         return totalNumberOfPassengers;
     }
 
+    enum Mark{MARK1, MARK2;}
+
     @Override
     public Aircraft[] sortAircraftByFlightLength() {
         Aircraft[] tempArray = new Aircraft[100];

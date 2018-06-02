@@ -5,19 +5,23 @@ import java.io.Serializable;
 /**
  * Created by Mike on 25.05.2018.
  */
+
 public abstract class Aircraft implements Serializable {
     private int id;
     private String name;
     private int capacity;
     private int numberOfPassenger;
     private int flightLength;
+    public enum Mark{CargoMark1, CargoMark2, PassMark1, PassMark2};
+    private Mark markOfAircraft;
 
-    public Aircraft(int id, String name, int capacity, int numberOfPassenger, int flightLength) {
+    public Aircraft(int id, String name, int capacity, int numberOfPassenger, int flightLength, String markOfAircraft) {
         this.id = id;
         this.name = name;
         this.capacity = capacity;
         this.numberOfPassenger = numberOfPassenger;
         this.flightLength = flightLength;
+        this.markOfAircraft = Mark.valueOf(markOfAircraft);
     }
 
     public int getId() {
@@ -38,14 +42,17 @@ public abstract class Aircraft implements Serializable {
         return flightLength;
     }
 
+    public Mark getMarkOfAircraft() {return markOfAircraft; }
+
 
     @Override
     public String toString() {
-        return "Aircraft{" +
+        return "Plane{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", capacity='" + capacity + '\'' +
                 ", flight length='" + flightLength + '\'' +
+                ", mark='" + markOfAircraft + '\'' +
                 '}';
     }
 

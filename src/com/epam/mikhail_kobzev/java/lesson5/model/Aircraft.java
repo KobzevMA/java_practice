@@ -41,7 +41,7 @@ public abstract class Aircraft implements Serializable {
 
     @Override
     public String toString() {
-        return "Aircraft{" +
+        return "Plane{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", capacity='" + capacity + '\'' +

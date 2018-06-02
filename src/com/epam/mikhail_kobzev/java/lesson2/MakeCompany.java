@@ -19,13 +19,12 @@ public class MakeCompany {
     void run() throws IOException {
         Scanner scanner = new Scanner(System.in);
         AirCompany doganAirlines = new AirCompanyImplemented();
-        AirCompany feddikAirlines = new AirCompanyImplemented();
         String name = scanner.nextLine();
         int capacity1 = scanner.nextInt();
 
-        doganAirlines.addAircraft(new CargoAircraft(1, name, capacity1,2000));
-        doganAirlines.addAircraft(new PassengerAircraft(2, "DarkTower", 20, 300, 1300));
-        doganAirlines.addAircraft(new PassengerAircraft(3, "CrimsonKing", 10, 200, 1200));
+        doganAirlines.addAircraft(new CargoAircraft(1, name, capacity1,2000, "CargoMark1"));
+        doganAirlines.addAircraft(new PassengerAircraft(2, "DarkTower", 20, 300, 1300, "PassMark1"));
+        doganAirlines.addAircraft(new PassengerAircraft(3, "CrimsonKing", 10, 200, 1200, "PassMark2"));
 
         System.out.println("Total capacity is " + doganAirlines.getTotalCapacity());
         System.out.println("Total number of passenger is " + doganAirlines.getTotalNumberOfPassengers());
@@ -39,8 +38,8 @@ public class MakeCompany {
         }
         System.out.println();
 
-        System.out.println("Aircraft with flight length 2000:");
-        Aircraft[] aircrafts = feddikAirlines.getAircraftByFlightLength(2000);
+        System.out.println("Plane with flight length 2000:");
+        Aircraft[] aircrafts = doganAirlines.getAircraftByFlightLength(2000);
         for (int i = 0; i < aircrafts.length; i++)
             System.out.println(aircrafts[i].toString());
     }
